@@ -12,12 +12,13 @@ def f0(g: CanevasEmpilements, pos: int) -> None:
 
     # condition d'arrêt
     if pos >= nbCubesX:
-        return
+        return 
 
     # sinon
-    g.empilerCube(pos, "green")  # empilement
+    g.empilerCube(pos, 'blue violet')  # empilement
     f0(g, pos + 1)  # appel récursif
-
+    g.empilerCube(pos,'green')
+    
 
 f0(g, 0)
 

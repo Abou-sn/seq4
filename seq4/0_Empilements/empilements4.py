@@ -23,6 +23,7 @@ def f1(g: CanevasEmpilements, pos: int) -> None:
     if pos + 1 < nbCubesX:
         f0(g, pos + 1)
 
+f0(g,1)
 
 # fin du programme
 g.attendreClic()

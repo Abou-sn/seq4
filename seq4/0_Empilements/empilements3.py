@@ -21,6 +21,7 @@ def fB(g: CanevasEmpilements, pos: int) -> None:
     g.attendreClic()
 
 
+fA(g,2)
 # fin du programme
 g.attendreClic()
 g.fermerFenetre()
