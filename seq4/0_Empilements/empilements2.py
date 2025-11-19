@@ -21,7 +21,8 @@ def fc(g: CanevasEmpilements, pos: int) -> None:
     g.empilerCube(pos + 2, "blue")
     g.attendreClic()
 
-
+fa(g,2)
 # fin du programme
 g.attendreClic()
 g.fermerFenetre()
+
