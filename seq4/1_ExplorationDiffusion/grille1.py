@@ -39,19 +39,24 @@ g.placer_pacman(px, py)
 g.changerCarre(px, py, "blue")
 
 
-running = True
-while running:
-    vx = px + dx  # case voisine
-    vy = py + dy
-    if g.case_valide(vx, vy):
-        # on deplace pacman
-        px = vx
-        py = vy
-        g.placer_pacman(px, py)
-        g.changerCarre(px, py, "blue")
-        g.pause(0.5)
-    else:
-        running = False
+Directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+
+nb_ckeck = 1
+while True:
+    for dx, dy in Directions: # on va chez les voisins
+        vx, vy = px + dx, py + dy
+        nb_ckeck += 1
+        if g.case_valide(vx, vy) and g.getCouleur(vx, vy) != "blue":
+            g.placer_pacman(vx, vy)
+            g.dessinerFleche(px,py,vx,vy)
+            g.changerCarre(vx, vy, "blue")
+            g.pause(0.2)
+            px, py = vx, vy
+            nb_ckeck = 1
+            break
+        
+    if nb_ckeck >= len(Directions): # aucun voisin dispo
+        break
 
 
 # fin du programme

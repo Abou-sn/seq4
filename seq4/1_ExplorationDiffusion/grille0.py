@@ -55,6 +55,7 @@ g.pause(1)
 g.changerCarre(7, 7, "blue")
 print(g.getCouleur(7, 7))
 
+g.dessinerFleche(9,10,9,11)
 
 # fin du programme
 g.attendreClic()
