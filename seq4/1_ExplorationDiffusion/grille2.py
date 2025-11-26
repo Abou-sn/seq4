@@ -47,11 +47,24 @@ def exploration(i: int, j: int) -> None:
     - en dernière amélioration, on peut placer une flèche entre cette case et la case voisine si une exploration est lancée,
     et supprimer la flèche quand de la case voisine est est terminée
     """
-
+    directions = [(0,1),(0,-1),(1,0),(-1,0)]
     g.changerCarre(i, j, "blue")
     g.placer_pacman(i, j)
-    # a completer...
 
+    for di,dj in directions :
+        vi = i+di
+        vj = j+dj
+        
+        if g.case_valide(vi,vj) and g.getCouleur(vi,vj) != 'blue' :
+            g.placer_pacman(vi,vj)
+            f = g.dessinerFleche(i,j,vi,vj)
+            g.pause(0.05)
+            exploration(vi,vj)
+            g.pause(0.05)
+            g.supprimer(f)
+            g.placer_pacman(i,j)
+            
+        
 
 g.attendreClic()
 exploration(7, 5)
